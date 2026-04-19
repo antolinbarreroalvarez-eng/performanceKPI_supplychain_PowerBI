@@ -59,10 +59,10 @@ Aggregated YTD figures (items and value), Displayed using Card visuals.
 
 ---
 
-Measures – Examples (Region: Asia)
+**Measures.** Examples (Region: Asia)
 
 
-**KPI Value.**
+**1.KPI Value.**
 Calculated for KPI visuals. The specific region is selected at visual filter level.
 
 DAX 
@@ -70,7 +70,7 @@ DAX
 OTIFc value Regions =AVERAGE ( 'OTIFc Regions'[OTIF Customer Value] )
 
 
-**Target Value.**
+**2.Target Value.**
 Used as KPI target benchmark.
 
 DAX
@@ -78,7 +78,7 @@ DAX
 OTIFc Target ASIA =AVERAGE ( 'OTIFc Yearly Targets'[Region] )
 
 
-**Conditional Formatting.**
+**3.Conditional Formatting.**
 
 Defines KPI color based on performance vs target.
 
@@ -87,7 +87,7 @@ DAX
 OTIFc Conditional AH Total =VAR v = [OTIFc value Regions]VAR t = [OTIF Target ASIA]RETURNIF (    v >= t, "#4CAF50",        -- green (>= target)    IF ( v >= t - 2, "#FFC107", "#F44336" ) -- orange / red)
 
 
-**YTD Calculation.**
+**4.YTD Calculation.**
 
 Weighted YTD OTIF calculation. Region Asia selected at filter level.
 
