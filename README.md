@@ -62,15 +62,14 @@ Aggregated YTD figures (items and value), Displayed using Card visuals.
 **Measures** – Examples (Region: Asia)
 
 
-KPI Value
-
+1.KPI Value
 Calculated for KPI visuals. The specific region is selected at visual filter level.
 
-DAXOTIFc value Regions =AVERAGE ( 'OTIFc Regions'[OTIF Customer Value] )Show more lines
+'''DAX 
+value Regions =AVERAGE ( 'OTIFc Regions'[OTIF Customer Value] )Show more lines
 
 
-Target Value
-
+2.Target Value
 Used as KPI target benchmark.
 
 DAXOTIF Target ASIA =AVERAGE ( 'OTIFc Yearly Targets'[Region] )Show more lines
