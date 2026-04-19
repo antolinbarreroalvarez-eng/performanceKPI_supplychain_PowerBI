@@ -5,6 +5,9 @@ Previously, visuals were manually created in Excel and PowerPoint.
 This solution automates data extraction, transformation, modeling, and visualization, improving reliability and efficiency of the reporting process.
 Estimated time savings: ~2 hours per month.
 
+---
+
+
 Data Pipeline
 **Extraction**
 
@@ -16,7 +19,20 @@ Data cleansing and preparation steps including data type alignment, duplicate ha
 
 **Modeling**
 
-Connecting reported data with annual targets, including a centralized calendar table to provide consistent date context (MTD / YTD).
+Connecting reported data with annual targets, including a centralized calendar table to provide consistent **date context (MTD / YTD)**.
+
+Calendar Common =
+DISTINCT (
+    UNION (
+        SELECTCOLUMNS ( 'OTIFc AH Total',  "Calendar Month", 'OTIFc AH Total'[Calendar Month] ),
+        SELECTCOLUMNS ( 'OTIFc Regions',   "Calendar Month", 'OTIFc Regions'[Calendar Month] ),
+        SELECTCOLUMNS ( 'OTIFc ROPUs',     "Calendar Month", 'OTIFc ROPUs'[Calendar Month] ),
+        SELECTCOLUMNS ( 'OTIFc Segments',  "Calendar Month", 'OTIFc Segments'[Calendar Month] ),
+        SELECTCOLUMNS ( 'OTIFc Franchise', "Calendar Month", 'OTIFc Franchise'[Calendar Month] )
+    )
+)
+
+---
 
 **Visuals**
 Type 1 – KPI Overview
@@ -37,12 +53,12 @@ Type 3 – YTD Figures
 
 Aggregated YTD figures (items and value), Displayed using Card visuals.
 
+
+
 ---
-**Calendar Table** (Date Context)
-A centralized calendar table used to align date context across all OTIFc fact tables.
-DAXCalendar Common =DISTINCT (    UNION (        SELECTCOLUMNS ( 'OTIFc AH Total',  "Calendar Month", 'OTIFc AH Total'[Calendar Month] ),        SELECTCOLUMNS ( 'OTIFc Regions',   "Calendar Month", 'OTIFc Regions'[Calendar Month] ),        SELECTCOLUMNS ( 'OTIFc ROPUs',     "Calendar Month", 'OTIFc ROPUs'[Calendar Month] ),        SELECTCOLUMNS ( 'OTIFc Segments',  "Calendar Month", 'OTIFc Segments'[Calendar Month] ),        SELECTCOLUMNS ( 'OTIFc Franchise', "Calendar Month", 'OTIFc Franchise'[Calendar Month] )    ))Show more lines
----
+
 **Measures** – Examples (Region: Asia)
+
 KPI Value
 Calculated for KPI visuals. The specific region is selected at visual filter level.
 DAXOTIFc value Regions =AVERAGE ( 'OTIFc Regions'[OTIF Customer Value] )Show more lines
