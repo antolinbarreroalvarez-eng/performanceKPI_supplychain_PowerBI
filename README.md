@@ -36,6 +36,7 @@ DISTINCT (
 ---
 
 **Visuals**
+
 Type 1 – KPI Overview
 
 combination of KPI visual showing Global MTD with conditional formatting and breakdown by:
